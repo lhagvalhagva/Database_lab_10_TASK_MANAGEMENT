@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/static/style_login.css" />
+    <title>Login</title>
+  </head>
+  <body>
+    <div id="login-form">
+      <input type="text" id="username" placeholder="Username" />
+      <input type="password" id="password" placeholder="Password" />
+      <label for="login-type">Login as:</label>
+      <select id="login-type">
+        <option value="employee">Employee</option>
+        <option value="customer">Customer</option>
+      </select>
+      <button id="login-btn">Login</button>
+    </div>
+
+    <script src="index.js"></script>
+    <script>
+      function employeeAuthentication(username, password) {
+        const employeeUsername = "employee";
+        const employeePassword = "employee";
+
+        return username === employeeUsername && password === employeePassword;
+      }
+
+      function customerAuthentication(username, password) {
+        const customerUsername = "customer";
+        const customerPassword = "customer";
+
+        return username === customerUsername && password === customerPassword;
+      }
+      document.getElementById("login-btn").addEventListener("click", () => {
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+        const loginType = document.getElementById("login-type").value;
+
+        if (loginType === "employee") {
+          if (employeeAuthentication(username, password)) {
+            console.log("Employee authenticated successfully.");
+            window.location.href = "emp_task.html";
+          } else {
+            alert("Ажилтны нэр эсвэл нууц үг буруу байна");
+          }
+        } else if (loginType === "customer") {
+          if (customerAuthentication(username, password)) {
+            console.log("Customer authenticated successfully.");
+            window.location.href = "/templates/index.html";
+          } else {
+            alert("Хэрэглэгчийн нэр эсвэл нууц үг буруу байна");
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

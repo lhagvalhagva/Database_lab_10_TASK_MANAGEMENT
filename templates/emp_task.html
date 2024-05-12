@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/static/style_emp.css" />
+    <link rel="stylesheet" href="/static/style.css" />
+    <title>Employee</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <h1>Employee Tasks</h1>
+      <ul id="task-list" class="task-list"></ul>
+    </div>
+    <button id="logout-btn">Log Out</button>
+    <script src="index.js"></script>
+
+    <script>
+      const tasksData = [
+        { id: 1, name: "Task 1", assignedTo: "John Doe" },
+        { id: 2, name: "Task 2", assignedTo: "Jane Smith" },
+      ];
+
+      const taskList = document.getElementById("task-list");
+
+      function createTaskItem(task) {
+        const listItem = document.createElement("li");
+        listItem.textContent = `${task.name} - Assigned to: ${task.assignedTo}`;
+        taskList.appendChild(listItem);
+      }
+      document.getElementById("logout-btn").addEventListener("click", () => {
+        window.location.href = "/templates/login.html";
+      });
+      tasksData.forEach((task) => {
+        createTaskItem(task);
+      });
+    </script>
+  </body>
+</html>
