@@ -13,8 +13,16 @@
       <h1>Employee Tasks</h1>
       <ul id="task-list" class="task-list"></ul>
     </div>
+    <select id="employee-select">
+      <option value="">Select Employee</option>
+      <option value="John Doe">John Doe</option>
+      <option value="Jane Smith">Jane Smith</option>
+    </select>
+    <button id="add-employee-btn">Ажилтан нэмэх</button>
+    <button id="delete-employee-btn">Ажилтан устгах</button>
     <button id="logout-btn">Log Out</button>
-    <script src="index.js"></script>
+    <script src="/route/index.js"></script>
+    <script src="/route/emp_task.js"></script>
 
     <script>
       const tasksData = [

@@ -68,7 +68,7 @@ def authenticate():
 @app.route('/index')
 def index():
     tasks = get_all_tasks()
-    return render_template('index.html', tasks=tasks)
+    return render_template('emp_task.html', tasks=tasks)
 
 if __name__ == '__main__':
     app.run(debug=True)
